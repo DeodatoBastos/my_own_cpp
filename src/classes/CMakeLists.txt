@@ -1,4 +1,2 @@
-file(GLOB CLASSES_SRC *.cpp)
-
-add_library(CLASSES_LIB SHARED ${CLASSES_SRC})
-target_include_directories(CLASSES_LIB PUBLIC .)
+add_library(CLASSES_LIB INTERFACE)
+target_include_directories(CLASSES_LIB INTERFACE .)
