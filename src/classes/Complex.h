@@ -3,15 +3,18 @@
 
 #include <iostream>
 
+template<class C>
 class Complex {
-private:
-	double real;
-	double img;
 public:
-	Complex(double r, double i);
-	~Complex();
+	C real, img;
 
-	friend std::ostream &operator<< (std::ostream &, const Complex &);
+	Complex<C>(C r, C i) : real(r), img(i) {}
+	~Complex<C>() {}
+
+	friend std::ostream &operator<< (std::ostream& os, const Complex<C>& z) {
+		os << z.real << " + " << z.img << "i";
+		return os;
+	}
 };
 
 #endif // COMPLEX_H

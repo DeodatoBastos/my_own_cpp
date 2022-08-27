@@ -3,20 +3,20 @@
 #define PAIR_H
 
 #include <iostream>
-template<class T, class B> class Pair;
-template <class T, class B>
-std::ostream &operator<<(std::ostream &, const Pair<T, B> &);
 
 template<class T, class B>
 class Pair {
 private:
-	T _first;
-	B _second;
+	T first;
+	B second;
 public:
-	Pair(T first, B second);
-	~Pair();
+	Pair(T First, B Second) : first(First), second(Second) {}
+	~Pair() {}
 
-	friend std::ostream &operator<< <T, B>(std::ostream&, const Pair<T, B>&);
+	friend std::ostream &operator<< (std::ostream& os, const Pair<T, B>& p) {
+		os << "first: " << p._first << "second: " << p._second << std::endl;
+		return os;
+	}
 };
 
 #endif // end PAIR_H
