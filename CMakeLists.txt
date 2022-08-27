@@ -7,7 +7,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/build")
 include_directories(src)
 
 add_executable(Main main.cpp)
-target_link_libraries(Main CONTAINERS_LIB FUNCTIONS_LIB)
+target_link_libraries(Main CLASSES_LIB CONTAINERS_LIB FUNCTIONS_LIB)
 
 add_subdirectory(src)
 message("Project by: Deodato Bastos")

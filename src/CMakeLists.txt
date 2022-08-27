@@ -1,2 +1,3 @@
+add_subdirectory(classes)
 add_subdirectory(containers)
 add_subdirectory(functions)
