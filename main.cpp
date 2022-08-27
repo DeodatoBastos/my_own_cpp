@@ -1,10 +1,10 @@
 #include <iostream>
-#include "containers/Pair.h"
+#include "Complex.h"
 
 int main() {
-	Pair<int, int> my_pair(2, 3);
+	Complex z(1, 2);
 
-	std::cout << my_pair;
+	std::cout << z << std::endl;
 
 	return 0;
 }
