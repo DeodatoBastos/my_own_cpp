@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Complex.h"
+#include "classes/Complex.h"
 
 int main() {
-	Complex z(1, 2);
+	Complex<double> z(1, 2);
 
 	std::cout << z << std::endl;
 
