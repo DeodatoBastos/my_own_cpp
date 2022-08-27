@@ -4,7 +4,8 @@
 #include <iostream>
 #include <cmath>
 
-template<class C>
+const double EPSILON = 0.000001;
+template <class C>
 class Complex {
 public:
 	// Complex values (real part and imaginary part)
@@ -40,8 +41,99 @@ public:
 	 * @return Complex<C>&
 	 */
 	Complex<C>& operator= (const Complex<C>& w) {
-		this-> real = w.real;
+		this->real = w.real;
 		this->img = w.img;
+
+		return *this;
+	}
+
+	/**
+	 * @brief Addition Assignment operator
+	 * 
+	 * @param w The other complex number that is add to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator+= (const Complex<C>& w) {
+		this->real += w.real;
+		this->img += w.img;
+
+		return *this;
+	}
+
+	/**
+	 * @brief Subtraction Assignment operator
+	 *
+	 * @param w The other complex number that is subtracted to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator-= (const Complex<C>& w) {
+		this->real -= w.real;
+		this->img -= w.img;
+
+		return *this;
+	}
+
+	/**
+	 * @brief Multiplication Assignment operator
+	 *
+	 * @param w The other complex number that is multiplied to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator*= (const Complex<C>& w) {
+		C new_real = this->real * w.real - this->img * w.img;
+		C new_img = this->real * w.img + this->img * w.real;
+
+		this->real = new_real;
+		this->img = new_img;
+
+		return *this;
+	}
+
+	/**
+	 * @brief Multiplication Assignment operator with a real number
+	 * 
+	 * @param alpha real number
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator*= (const C& alpha) {
+		this->real *= alpha;
+		this->img *= alpha;
+
+		return *this;
+	}
+
+	/**
+	 * @brief Division Assignment operator
+	 *
+	 * @param w The other complex number that is divided to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator/= (const Complex<C>& w) {
+		C new_real = this->real * w.real + this->img * w.img;
+		C new_img = this->img * w.real - this->real * w.img;
+		C denominator = w.real * w.real + w.img * w.img;
+			
+		if (denominator < EPSILON)
+			throw std::runtime_error("Math error: Attempted to divide by Zero\n");
+
+		this->real = new_real / denominator;
+		this->img = new_img / denominator;
+
+		return *this;
+	}
+
+	/**
+	 * @brief Division Assignment operator by a real number
+	 * 
+	 * @param alpha real number
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator/= (const C& alpha) {
+		if (alpha < EPSILON)
+			throw std::runtime_error("Math error: Attempted to divide by Zero\n");
+
+		this->real /= alpha;
+		this->img /= alpha;
 
 		return *this;
 	}
