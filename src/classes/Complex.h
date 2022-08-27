@@ -138,8 +138,9 @@ public:
 		return *this;
 	}
 
-	friend std::ostream &operator<< (std::ostream& os, const Complex<C>& z) {
-		os << z.real << " + " << z.img << "i";
+	friend std::ostream& operator<< (std::ostream& os, const Complex<C>& z) {
+		char operation z.img > 0 ? '+' : '-';
+		os << z.real << " " << operation << " " << std::abs(z.img) << "i";
 		return os;
 	}
 };
