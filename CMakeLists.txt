@@ -6,7 +6,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/build")
 
 include_directories(src)
 
-add_executable(Main main.cpp ${CONT_SRC} ${FUNC_SRC})
+add_executable(Main main.cpp)
 target_link_libraries(Main CONTAINERS_LIB FUNCTIONS_LIB)
 
 add_subdirectory(src)
