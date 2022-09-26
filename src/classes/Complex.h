@@ -65,6 +65,18 @@ public:
 	}
 
 	/**
+	 * @brief Addition Assignment operator
+	 *
+	 * @param alpha Real number that is add to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C> &operator+= (const C& alpha) {
+		this->real += alpha;
+
+		return *this;
+	}
+
+	/**
 	 * @brief Subtraction Assignment operator
 	 *
 	 * @param w The other complex number that is subtracted to this one
@@ -73,6 +85,18 @@ public:
 	Complex<C>& operator-= (const Complex<C>& w) {
 		this->real -= w.real;
 		this->img -= w.img;
+
+		return *this;
+	}
+
+	/**
+	 * @brief Subtraction Assignment operator
+	 *
+	 * @param alpha Real number that is subtracted to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C> &operator-= (const C& alpha) {
+		this->real -= alpha;
 
 		return *this;
 	}
@@ -154,6 +178,17 @@ public:
 	}
 
 	/**
+	 * @brief Addition operator
+	 *
+	 * @param alpha Real number that is add to this one
+	 * @return Complex<C>&
+	 */
+
+	Complex<C> &operator+ (const C &alpha) const {
+		return Complex<C>(*this) += alpha;
+	}
+
+	/**
 	 * @brief Subtraction operator
 	 *
 	 * @param w The other complex number that is subtracted to this one
@@ -161,6 +196,16 @@ public:
 	 */
 	Complex<C>& operator- (const Complex<C>& w) const {
 		return Complex<C>(*this) -= w;
+	}
+
+	/**
+	 * @brief Subtraction operator
+	 *
+	 * @param alpha C number that is subtracted to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C> &operator-(const C& alpha) const {
+		return Complex<C>(*this) -= alpha;
 	}
 
 	/**
