@@ -175,9 +175,8 @@ public:
 	 * @brief Addition operator
 	 *
 	 * @param w The other complex number that is add to this one
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
-
 	Complex<C> operator+ (const Complex<C>& w) const {
 		return Complex<C>(*this) += w;
 	}
@@ -186,9 +185,8 @@ public:
 	 * @brief Addition operator
 	 *
 	 * @param alpha Real number that is add to this one
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
-
 	Complex<C> operator+ (const C &alpha) const {
 		return Complex<C>(*this) += alpha;
 	}
@@ -197,7 +195,7 @@ public:
 	 * @brief Subtraction operator
 	 *
 	 * @param w The other complex number that is subtracted to this one
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
 	Complex<C> operator- (const Complex<C>& w) const {
 		return Complex<C>(*this) -= w;
@@ -207,12 +205,17 @@ public:
 	 * @brief Subtraction operator
 	 *
 	 * @param alpha C number that is subtracted to this one
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
 	Complex<C> operator- (const C& alpha) const {
 		return Complex<C>(*this) -= alpha;
 	}
 
+	/**
+	 * @brief Opposite operator
+	 * 
+	 * @return Complex<C>
+	 */
 	Complex<C> operator- () const {
 		return Complex<C>() - *this;
 	}
@@ -221,7 +224,7 @@ public:
 	 * @brief Multiplication operator
 	 *
 	 * @param w The other complex number that is multiplied to this one
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
 	Complex<C> operator* (const Complex<C>& w) const {
 		return Complex<C>(*this) *= w;
@@ -231,7 +234,7 @@ public:
 	 * @brief Multiplication operator with a real number
 	 * 
 	 * @param alpha real number
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
 	Complex<C> operator* (const C& alpha) const {
 		return Complex<C>(*this) *= alpha;
@@ -241,7 +244,7 @@ public:
 	 * @brief Division operator
 	 *
 	 * @param w The other complex number that is divided to this one
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
 	Complex<C> operator/ (const Complex<C>& w) const {
 		return Complex<C>(*this) /= w;
@@ -251,7 +254,7 @@ public:
 	 * @brief Division operator by a real number
 	 * 
 	 * @param alpha real number
-	 * @return Complex<C>&
+	 * @return Complex<C>
 	 */
 	Complex<C> operator/ (const C& alpha) const {
 		return Complex<C>(*this) /= alpha;
