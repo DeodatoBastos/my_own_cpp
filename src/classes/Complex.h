@@ -29,6 +29,10 @@ public:
 	**/
 	Complex<C> (C theta) : real(cos(theta)), img(sin(theta)) {}
 
+	Complex<C> (const Complex<C>& w) {
+		*this = w;
+	}
+
 	/**
 	 * @brief Default Destructor
 	 */
@@ -136,6 +140,67 @@ public:
 		this->img /= alpha;
 
 		return *this;
+	}
+
+	/**
+	 * @brief Addition operator
+	 *
+	 * @param w The other complex number that is add to this one
+	 * @return Complex<C>&
+	 */
+
+	Complex<C>& operator+ (const Complex<C>& w) const {
+		return Complex<C>(*this) += w;
+	}
+
+	/**
+	 * @brief Subtraction operator
+	 *
+	 * @param w The other complex number that is subtracted to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator- (const Complex<C>& w) const {
+		return Complex<C>(*this) -= w;
+	}
+
+	/**
+	 * @brief Multiplication operator
+	 *
+	 * @param w The other complex number that is multiplied to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator* (const Complex<C>& w) const {
+		return Complex<C>(*this) *= w;
+	}
+
+	/**
+	 * @brief Multiplication operator with a real number
+	 * 
+	 * @param alpha real number
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator* (const C& alpha) const {
+		return Complex<C>(*this) *= alpha;
+	}
+
+	/**
+	 * @brief Division operator
+	 *
+	 * @param w The other complex number that is divided to this one
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator/ (const Complex<C>& w) const {
+		return Complex<C>(*this) /= w;
+	}
+
+	/**
+	 * @brief Division operator by a real number
+	 * 
+	 * @param alpha real number
+	 * @return Complex<C>&
+	 */
+	Complex<C>& operator/ (const C& alpha) const {
+		return Complex<C>(*this) /= alpha;
 	}
 
 	friend std::ostream& operator<< (std::ostream& os, const Complex<C>& z) {
