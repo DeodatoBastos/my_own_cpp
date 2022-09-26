@@ -204,7 +204,7 @@ public:
 	}
 
 	friend std::ostream& operator<< (std::ostream& os, const Complex<C>& z) {
-		char operation z.img > 0 ? '+' : '-';
+		char operation = z.img > 0 ? '+' : '-';
 		os << z.real << " " << operation << " " << std::abs(z.img) << "i";
 		return os;
 	}
