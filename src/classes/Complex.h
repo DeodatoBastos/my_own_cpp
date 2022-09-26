@@ -29,6 +29,11 @@ public:
 	**/
 	Complex<C> (C theta) : real(cos(theta)), img(sin(theta)) {}
 
+	/**
+	 * @brief Copy constructor
+	 * 
+	 * @param w The other complex number that is assigned to this one
+	 */
 	Complex<C> (const Complex<C>& w) {
 		*this = w;
 	}
@@ -70,7 +75,7 @@ public:
 	 * @param alpha Real number that is add to this one
 	 * @return Complex<C>&
 	 */
-	Complex<C> &operator+= (const C& alpha) {
+	Complex<C>& operator+= (const C& alpha) {
 		this->real += alpha;
 
 		return *this;
@@ -95,7 +100,7 @@ public:
 	 * @param alpha Real number that is subtracted to this one
 	 * @return Complex<C>&
 	 */
-	Complex<C> &operator-= (const C& alpha) {
+	Complex<C>& operator-= (const C& alpha) {
 		this->real -= alpha;
 
 		return *this;
@@ -184,7 +189,7 @@ public:
 	 * @return Complex<C>&
 	 */
 
-	Complex<C> &operator+ (const C &alpha) const {
+	Complex<C>& operator+ (const C &alpha) const {
 		return Complex<C>(*this) += alpha;
 	}
 
@@ -204,7 +209,7 @@ public:
 	 * @param alpha C number that is subtracted to this one
 	 * @return Complex<C>&
 	 */
-	Complex<C> &operator-(const C& alpha) const {
+	Complex<C>& operator- (const C& alpha) const {
 		return Complex<C>(*this) -= alpha;
 	}
 
