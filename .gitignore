@@ -36,3 +36,4 @@
 
 # Folder from Cmake build
 build/
+cmake-build-release/
