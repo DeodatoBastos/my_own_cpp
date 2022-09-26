@@ -178,7 +178,7 @@ public:
 	 * @return Complex<C>&
 	 */
 
-	Complex<C>& operator+ (const Complex<C>& w) const {
+	Complex<C> operator+ (const Complex<C>& w) const {
 		return Complex<C>(*this) += w;
 	}
 
@@ -189,7 +189,7 @@ public:
 	 * @return Complex<C>&
 	 */
 
-	Complex<C>& operator+ (const C &alpha) const {
+	Complex<C> operator+ (const C &alpha) const {
 		return Complex<C>(*this) += alpha;
 	}
 
@@ -199,7 +199,7 @@ public:
 	 * @param w The other complex number that is subtracted to this one
 	 * @return Complex<C>&
 	 */
-	Complex<C>& operator- (const Complex<C>& w) const {
+	Complex<C> operator- (const Complex<C>& w) const {
 		return Complex<C>(*this) -= w;
 	}
 
@@ -209,8 +209,12 @@ public:
 	 * @param alpha C number that is subtracted to this one
 	 * @return Complex<C>&
 	 */
-	Complex<C>& operator- (const C& alpha) const {
+	Complex<C> operator- (const C& alpha) const {
 		return Complex<C>(*this) -= alpha;
+	}
+
+	Complex<C> operator- () const {
+		return Complex<C>() - *this;
 	}
 
 	/**
@@ -219,7 +223,7 @@ public:
 	 * @param w The other complex number that is multiplied to this one
 	 * @return Complex<C>&
 	 */
-	Complex<C>& operator* (const Complex<C>& w) const {
+	Complex<C> operator* (const Complex<C>& w) const {
 		return Complex<C>(*this) *= w;
 	}
 
@@ -229,7 +233,7 @@ public:
 	 * @param alpha real number
 	 * @return Complex<C>&
 	 */
-	Complex<C>& operator* (const C& alpha) const {
+	Complex<C> operator* (const C& alpha) const {
 		return Complex<C>(*this) *= alpha;
 	}
 
@@ -239,7 +243,7 @@ public:
 	 * @param w The other complex number that is divided to this one
 	 * @return Complex<C>&
 	 */
-	Complex<C>& operator/ (const Complex<C>& w) const {
+	Complex<C> operator/ (const Complex<C>& w) const {
 		return Complex<C>(*this) /= w;
 	}
 
@@ -249,12 +253,12 @@ public:
 	 * @param alpha real number
 	 * @return Complex<C>&
 	 */
-	Complex<C>& operator/ (const C& alpha) const {
+	Complex<C> operator/ (const C& alpha) const {
 		return Complex<C>(*this) /= alpha;
 	}
 
 	friend std::ostream& operator<< (std::ostream& os, const Complex<C>& z) {
-		char operation = z.img > 0 ? '+' : '-';
+		char operation = z.img >= 0 ? '+' : '-';
 		os << z.real << " " << operation << " " << std::abs(z.img) << "i";
 		return os;
 	}
