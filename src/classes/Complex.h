@@ -278,22 +278,42 @@ public:
 		return !(*this == w);
 	}
 
+	/**
+	 * @brief returns the magnitude of the complex number
+	 * 
+	 * @return C
+	 */
 	C abs() const {
 		return (C) std::sqrt((this-> real * this-> real) + (this->img * this->img));
 	}
 
+	/**
+	 * @brief returns the squared magnitude of the complex number
+	 * 
+	 * @return C
+	 */
 	C norm() const {
 		return (this->real * this->real) + (this->img * this->img);
 	}
 
+	/**
+	 * @brief returns the argument, angle, of the complex number
+	 * 
+	 * @return C
+	 */
 	C arg() const {
 		return (C) std::atan2(this->img, this->real);
 	}
 
+	/**
+	 * @brief returns the conjugate of the complex number
+	 * 
+	 * @return Complex<C>
+	 */
 	Complex<C> conj() {
 		return Complex<C>(this->real, -this->img);
 	}
- 
+
 	friend std::ostream& operator<< (std::ostream& os, const Complex<C>& z) {
 		char operation = z.img >= 0 ? '+' : '-';
 		os << z.real << " " << operation << " " << std::abs(z.img) << "i";
