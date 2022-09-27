@@ -4,6 +4,7 @@
 #include <cmath>
 #include <iostream>
 
+namespace my_lib {
 const double EPSILON = 0.000001;
 template <class C>
 class Complex {
@@ -27,7 +28,7 @@ class Complex {
      *
      * @param theta argment of z
      **/
-    Complex<C>(C theta) : real(cos(theta)), img(sin(theta)) {}
+    Complex<C>(C theta) : real(std::abs(std::cos(theta)) > EPSILON ? std::cos(theta) : 0), img(std::abs(std::sin(theta)) > EPSILON ? std::sin(theta) : 0) {}
 
     /**
      * @brief Copy constructor
@@ -321,4 +322,10 @@ class Complex {
     }
 };
 
+template <class C>
+Complex<C> polar(const C& r, const C& theta) {
+    return Complex<C>(theta) * r;
+}
+
+}  // namespace my_lib
 #endif  // COMPLEX_H
