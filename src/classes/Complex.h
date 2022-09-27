@@ -260,6 +260,24 @@ public:
 		return Complex<C>(*this) /= alpha;
 	}
 
+	/**
+	 * @brief Verify if two complex numbers are equal
+	 * 
+	 * @param w The other complex number to compare
+	 */
+	bool operator== (const Complex<C>& w) const {
+		return (this->real == w.real && this->img == w.img);
+	}
+
+	/**
+	 * @brief Verify fi two complex numbers are different
+	 * 
+	 * @param w the other complex number to compare
+	 */
+	bool operator!= (const Complex<C>& w) const {
+		return !(*this == w);
+	}
+
 	friend std::ostream& operator<< (std::ostream& os, const Complex<C>& z) {
 		char operation = z.img >= 0 ? '+' : '-';
 		os << z.real << " " << operation << " " << std::abs(z.img) << "i";
