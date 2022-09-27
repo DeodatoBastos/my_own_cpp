@@ -278,6 +278,22 @@ public:
 		return !(*this == w);
 	}
 
+	C abs() const {
+		return (C) std::sqrt((this-> real * this-> real) + (this->img * this->img));
+	}
+
+	C norm() const {
+		return (this->real * this->real) + (this->img * this->img);
+	}
+
+	C arg() const {
+		return (C) std::atan2(this->img, this->real);
+	}
+
+	Complex<C> conj() {
+		return Complex<C>(this->real, -this->img);
+	}
+ 
 	friend std::ostream& operator<< (std::ostream& os, const Complex<C>& z) {
 		char operation = z.img >= 0 ? '+' : '-';
 		os << z.real << " " << operation << " " << std::abs(z.img) << "i";
